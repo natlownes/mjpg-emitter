@@ -1,0 +1,37 @@
+{
+  "name": "mjpg-emitter",
+  "version": "0.0.1",
+  "description": "throw jpegs into this and emit mjpgs after an amount of time you specify",
+  "main": "lib/index.js",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "jpg",
+    "mjpg",
+    "video",
+    "emitter",
+    "secret eating"
+  ],
+  "directories": {
+    "test": "test",
+    "src": "src",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "cake test",
+    "test:watch": "cake test:watch",
+    "build": "find ./src -iname '*.coffee' | xargs coffee -c -o lib"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.0",
+    "mocha": "~1.8.1",
+    "chai": "~1.4.2",
+    "sinon": "~1.7.3",
+    "honk-cake": ">=0.0.5"
+  },
+  "author": "Nat Lownes <nat.lownes@gmail.com>",
+  "license": "BSD"
+}
