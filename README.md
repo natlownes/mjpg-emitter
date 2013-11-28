@@ -1,5 +1,8 @@
 # mjpg-emitter
 
+[![Build
+Status](https://travis-ci.org/natlownes/mjpg-emitter.png?branch=master)](https://travis-ci.org/natlownes/mjpg-emitter)
+
 Take several jpgs and make them into an mjpg.  The idea is that you can chuck
 jpgs into this and get an mjpg emitted after the time (in milliseconds) you
 specify in the constructor.  An optional second argument is the mjpg boundary
