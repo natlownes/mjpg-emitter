@@ -193,6 +193,19 @@ describe 'MjpgEmitter', ->
 
         expect( imageBuffer ).to.equal testBuffer
 
+      context 'when timer has not been started', ->
+
+        it 'should call start on #add', ->
+          mjpg = mjpgSetup()
+
+          expect(mjpg.timeoutId).to.not.exist
+
+          testBuffer = testjpg
+
+          mjpg.add(testBuffer)
+
+          expect(mjpg.timeoutId).to.exist
+
     context 'when flushing', ->
       mjpgSetup = ->
         o = new MjpgEmitter
@@ -231,3 +244,4 @@ describe 'MjpgEmitter', ->
         .to.equal 'multipart/x-mixed-replace;boundary=mjpgemitter'
 
       expect( headers['content-length'] ).to.equal mjpg.buffer().length
+

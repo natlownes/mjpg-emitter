@@ -22,11 +22,12 @@ class MjpgEmitter extends EventEmitter
     bufferOut = @buffer()
     headers   = @headers(bufferOut)
     @emit 'image', bufferOut, headers
-    @buffers = []
     @flushing = false
+    @buffers = []
     @start()
 
   add: (buffer) ->
+    @start() if not @timeoutId
     if not @flushing
       @_writeHeader(buffer)
       @buffers.push(buffer)
