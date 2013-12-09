@@ -19,7 +19,9 @@ class MjpgEmitter extends EventEmitter
   flush: =>
     @stop()
     @flushing = true
-    @emit 'image', @buffer(), @headers()
+    bufferOut = @buffer()
+    headers   = @headers(bufferOut)
+    @emit 'image', bufferOut, headers
     @buffers = []
     @flushing = false
     @start()
@@ -33,9 +35,9 @@ class MjpgEmitter extends EventEmitter
 
   buffer: -> Buffer.concat(@buffers)
 
-  headers: ->
+  headers: (buffer) ->
     'content-type': "multipart/x-mixed-replace;boundary=#{@boundaryName}"
-    'content-length': @buffer().length
+    'content-length': buffer.length
 
   _writeHeader: (buffer) ->
     @buffers.push(@_headerForBuffer(buffer))

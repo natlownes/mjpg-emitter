@@ -220,12 +220,12 @@ describe 'MjpgEmitter', ->
 
   describe 'headers', ->
 
-    it 'should return an object with HTTP headers for the mjpg object', ->
+    it 'should return an object with HTTP headers for the given buffer', ->
       mjpg = new MjpgEmitter
 
       mjpg.add(testjpg)
 
-      headers = mjpg.headers()
+      headers = mjpg.headers(mjpg.buffer())
 
       expect( headers['content-type'] )
         .to.equal 'multipart/x-mixed-replace;boundary=mjpgemitter'

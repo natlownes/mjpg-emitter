@@ -1,6 +1,6 @@
 {
   "name": "mjpg-emitter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "throw jpegs into this and emit mjpgs after an amount of time you specify",
   "main": "lib/index.js",
   "readmeFilename": "README.md",
